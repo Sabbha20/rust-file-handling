@@ -1,5 +1,5 @@
 
-use std::fs::{File, OpenOptions};
+use std::fs::{File, OpenOptions, remove_file};
 use std::io::{Read, Write};
 
 fn main() {
@@ -15,6 +15,8 @@ fn main() {
     let mut content = String::new();
     file3.read_to_string(&mut content).unwrap();
     println!("{}", content);
+
+    remove_file("src/myfile.txt").expect("Delete failed");
 
 }
 
